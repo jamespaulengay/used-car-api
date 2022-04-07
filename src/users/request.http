@@ -6,3 +6,20 @@ Content-Type: application/json
     "email": "jamespaulengay@gmail.com",
     "password": "samplepassword"
 }
+
+### Get All User Email
+GET http://localhost:3000/auth/?email=jamespaulengay@gmail.com
+
+### Get User by Id
+GET http://localhost:3000/auth/3121121212
+
+### Delete User 
+DELETE http://localhost:3000/auth/12312312
+
+### Update User
+PATCH http://localhost:3000/auth/112123
+Content-Type: application/json
+
+ { 
+     "email": "jamespaul.engay@tup.edu.ph"
+ }
