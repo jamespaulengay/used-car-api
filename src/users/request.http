@@ -11,7 +11,7 @@ Content-Type: application/json
 GET http://localhost:3000/auth/?email=jamespaulengay@gmail.com
 
 ### Get User by Id
-GET http://localhost:3000/auth/3121121212
+GET http://localhost:3000/auth/5
 
 ### Delete User 
 DELETE http://localhost:3000/auth/12312312
