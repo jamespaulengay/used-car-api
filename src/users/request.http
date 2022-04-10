@@ -3,7 +3,16 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "jamespaulengay@gmail.com",
+    "email": "jamespaulsengay@gmail.com",
+    "password": "samplepassword"
+}
+
+### Logging in User
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email": "jamespaulsengay@gmail.com",
     "password": "samplepassword"
 }
 
@@ -21,5 +30,5 @@ PATCH http://localhost:3000/auth/112123
 Content-Type: application/json
 
  { 
-     "email": "jamespaul.engay@tup.edu.ph"
+     "email": "emailbuddy@example.com"
  }
