@@ -9,6 +9,7 @@ import {
   Patch,
   NotFoundException,
   Session,
+  UseGuards,
 } from '@nestjs/common';
 import { Serialize } from '../interceptors/serialize.interceptor';
 import { CreateUserDto } from './dtos/create-user.dto';
@@ -16,9 +17,13 @@ import { UpdateUserDto } from './dtos/update-user.dto';
 import { UserDto } from './dtos/user.dto';
 import { UsersService } from './users.service';
 import { AuthService } from './auth.service';
+import { CurrentUser } from './decorators/current-user.decorator';
+import { AuthGuard } from '../guards/auth.guard';
+import { User } from './user.entity';
 
 @Serialize(UserDto)
 @Controller('auth')
+@UseGuards(AuthGuard)
 export class UsersController {
   constructor(
     private usersService: UsersService,
@@ -26,9 +31,14 @@ export class UsersController {
   ) {}
 
   //Proving who was the user signs up
-  @Get('whoAmI')
-  whoAmI(@Session() session: any) {
-    return this.usersService.findOne(session.userId);
+  // @Get('whoAmI')
+  // whoAmI(@Session() session: any) {
+  //   return this.usersService.findOne(session.userId);
+  // }
+
+  @Get('/whoAmI')
+  whoAmI(@CurrentUser() user: User) {
+    return user;
   }
 
   @Post('/signout')
