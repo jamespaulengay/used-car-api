@@ -18,6 +18,9 @@ export class UsersService {
   }
 
   findOne(id: number) {
+    if (!id) {
+      throw new NotFoundException('You are not logged in.');
+    }
     return this.repo.findOne(id);
   }
 
